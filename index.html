@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Mariana Álvarez Guerrero">
+  <meta name="keywords" content="café, tipos de café, cafetería, beneficios del café, cultura del café">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo sobre el Café</title>
+  <link rel="stylesheet" href="estilos.CSS">
+</head>
+<body>
+
+  <header>
+    <h1>Bienvenidos al Mundo del Café ☕</h1>
+  </header>
+
+  
+  <nav>
+    <ul>
+      <li><a href="https://www.tripadvisor.com.mx/Restaurants-g479232-c8-Queretaro_City_Central_Mexico_and_Gulf_Coast.html">Inicio</a></li>
+      <li><a href="https://cafeselcriollo.com/listados/quince-tipos-de-cafe-segun-su-elaboracion/">Tipos de café</a></li>
+      <li><a href="https://laguashira.com/blogs/blog/20-datos-interesantes-que-no-sabias-sobre-el-cafe?srsltid=AfmBOopn4siLMfuin7uBposHUBkqNog8eEBqboeme-UP7f9xspXUPsrg">Curiosidades</a></li>
+      <li><a href="https://www.starbucksathome.com/pe/recipes">Recetas</a></li>
+    </ul>
+  </nav>
+
+  <div class="busqueda">
+    <input type="text" id="buscar" placeholder="Buscar en el contenido...">
+  </div>
+
+  <div class="contenedor">
+    <article>
+      <section>
+        <h2>Tipos de café</h2>
+        <p>El café se puede preparar de muchas formas, y cada estilo tiene su sabor y características:</p>
+        <ul>
+          <li><strong>Espresso:</strong> Café negro concentrado con gran cuerpo y aroma.</li>
+          <li><strong>Capuchino:</strong> Espresso con leche vaporizada y espuma.</li>
+          <li><strong>Latte:</strong> Más leche que el capuchino, ideal para quienes prefieren sabores suaves.</li>
+          <li><strong>Cold Brew:</strong> Café infusionado en frío durante horas, menos ácido y muy refrescante.</li>
+          <li><strong>Macchiato:</strong> Espresso con un toque de espuma de leche.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Imagen del día</h2>
+        <img src="MESITA.jpg" alt="Imagen del día - café en mesita" class="imagen-del-dia">
+        <p>Una buena taza de café puede transformar tu día. ¡Tómate un descanso y disfrútalo!</p>
+      </section>
+
+      <section>
+        <h2>🌍 Cultura cafetera</h2>
+        <p>En muchos países, el café no es solo una bebida, sino una tradición. En Italia, el espresso se toma de pie en la barra; en Colombia, se valora el grano de calidad mundial; y en Turquía, se prepara lentamente con especias.</p>
+        <p>Compartir un café es también una excusa para conversar, trabajar o simplemente relajarse.</p>
+      </section>
+    </article>
+
+    <aside>
+      <h2>Curiosidades del café</h2>
+      <ul>
+        <li>El café es la segunda bebida más consumida en el mundo, después del agua.</li>
+        <li>Contiene antioxidantes que pueden beneficiar tu salud.</li>
+        <li>Ayuda a mejorar la memoria y la concentración.</li>
+        <li>Existen más de 70 países productores de café, siendo Brasil el mayor exportador.</li>
+        <li>El café proviene de una fruta llamada cereza de café.</li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer>
+    <p>Por Mariana Álvarez Guerrero 6.2 - Páginas Web.</p>
+    <p id="contador">Cargando visitas...</p>
+  </footer>
+
+  <script>
+    // Barra de búsqueda
+    const buscar = document.getElementById('buscar');
+    buscar.addEventListener('input', () => {
+      const filtro = buscar.value.toLowerCase();
+      const secciones = document.querySelectorAll('section, aside');
+      secciones.forEach(seccion => {
+        const texto = seccion.innerText.toLowerCase();
+        seccion.style.display = texto.includes(filtro) ? 'block' : 'none';
+      });
+    });
+
+    // Contador de pagina
+    let visitas = localStorage.getItem('visitasCafe');
+    visitas = visitas ? parseInt(visitas) + 1 : 1;
+    localStorage.setItem('visitasCafe', visitas);
+    document.getElementById('contador').textContent = 
+      `Esta página ha sido visitada ${visitas} ${visitas === 1 ? 'vez' : 'veces'} desde este navegador.`;
+  </script>
+
+</body>
+</html>
